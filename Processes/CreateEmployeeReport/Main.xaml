@@ -1,0 +1,314 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="test_invokeoperations" this:test_invokeoperations.password="[new System.net.NetworkCredential(string.Empty,&quot;Gr3atWorkingWithYou!&quot;).SecurePassword]" this:test_invokeoperations.username="uipath-presales" this:test_invokeoperations.TenantURL="https://wd2-impl-services1.workday.com/ccx/service/uipath_dpt1" this:test_invokeoperations.TenantName="uipath_dpt1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ubac="clr-namespace:UiPath.BAF.Activities.ContextModel;assembly=UiPath.Workday.Activities" xmlns:ubme="clr-namespace:UiPath.BAF.Models.Entity;assembly=UiPath.Workday" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uwa="clr-namespace:UiPath.Workday.Activities;assembly=UiPath.Workday.Activities" xmlns:uwh="clr-namespace:UiPath.Workday.Human_Resources;assembly=UiPath.Workday" xmlns:uwm="clr-namespace:UiPath.Workday.Models;assembly=UiPath.Workday" xmlns:uws="clr-namespace:UiPath.Workday.ServiceFactory;assembly=UiPath.Workday" xmlns:uws1="clr-namespace:UiPath.Workday.Services;assembly=UiPath.Workday" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="password" Type="InArgument(ss:SecureString)" />
+    <x:Property Name="username" Type="InArgument(x:String)" />
+    <x:Property Name="TenantURL" Type="InArgument(x:String)" />
+    <x:Property Name="TenantName" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>838.4,1641.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>test_invokeoperations_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="70">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Workday.Models</x:String>
+      <x:String>UiPath.BAF.Models.Connection</x:String>
+      <x:String>UiPath.Workday.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.BAF.Activities</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.BAF.Models.Response</x:String>
+      <x:String>UiPath.Workday.Human_Resources</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Workday.Academic_Foundation</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Workday.Staffing</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.BAF.Models.Entity</x:String>
+      <x:String>UiPath.BAF.Models.CrudOperation</x:String>
+      <x:String>UiPath.Workday.Integrations</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workday</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow</AssemblyReference>
+      <AssemblyReference>UiPath.Workday.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.ServiceNow.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Threading.Tasks.Extensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.Unsafe</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="550.4,1576.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uwa:WorkdayScopeActivity ExistingConnection="{x:Null}" WorkdayConnection="{x:Null}" DisplayName="Workday Application Scope" sap:VirtualizedContainerService.HintSize="508.8,1484" sap2010:WorkflowViewState.IdRef="WorkdayScopeActivity_1" Password="[password]" TelemetryEnabled="False" Tenant="[TenantName]" TenantUrl="[TenantURL]" ThrowExceptionOnError="False" Username="[username]">
+      <uwa:WorkdayScopeActivity.Body>
+        <ActivityAction x:TypeArguments="ubac:ScopeActivityContext">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ubac:ScopeActivityContext" Name="ScopeActivityContext" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="475.2,1372.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="uwh:Get_Workers_ResponseRootType" Name="GetWorkersResponse" />
+              <Variable x:TypeArguments="x:String" Name="data" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dtReport" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Comment sap:VirtualizedContainerService.HintSize="433.6,94.4" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Drag and Drop &quot;Invoke Workday Operation&quot; and search and configure Get_Workers (Human Resources) service" />
+            <uwa:WorkdayOperation Status="{x:Null}" TimeoutInMS="{x:Null}" Version="{x:Null}" DisplayName="Invoke Workday Operation" sap:VirtualizedContainerService.HintSize="433.6,61.6" sap2010:WorkflowViewState.IdRef="WorkdayOperation_2">
+              <uwa:WorkdayOperation.BusinessEntity>
+                <ubme:BusinessEntity Id="{x:Null}" Metadata="{x:Reference __ReferenceID1}" SelectedFields="{x:Null}" Name="Get_Workers">
+                  <ubme:BusinessEntity.AllFields>
+                    <scg:List x:TypeArguments="ubme:EntityField" Capacity="4">
+                      <ubme:EntityField ArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="uwh:Workday_Common_HeaderType" DataType="Workday_Common_HeaderType" Description="Human_Resources.Workday_Common_Header" FieldName="Workday_Common_Header" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" />
+                      <ubme:EntityField ArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="uwh:Get_Workers_RequestType" DataType="Get_Workers_RequestType" Description="Human_Resources.Get_Workers_Request" FieldName="Get_Workers_Request" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" />
+                      <ubme:EntityField ArgumentValue="{x:Null}" SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="Out" ArgumentType="uwh:Get_Workers_ResponseRootType" DataType="Get_Workers_ResponseRootType" Description="Human_Resources.Get_Workers_ResponseRootType" FieldName="Get_Workers_ResponseRootType" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False" />
+                    </scg:List>
+                  </ubme:BusinessEntity.AllFields>
+                  <ubme:BusinessEntity.EntityMetadata>
+                    <ubme:EntityMetadata Description="Human Resources" EligibleOperations="-1" IsCustomEntity="False" Name="Get_Workers">
+                      <ubme:EntityMetadata.Metadata>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID1">
+                          <x:String x:Key="service">Human_Resources</x:String>
+                        </scg:Dictionary>
+                      </ubme:EntityMetadata.Metadata>
+                    </ubme:EntityMetadata>
+                  </ubme:BusinessEntity.EntityMetadata>
+                </ubme:BusinessEntity>
+              </uwa:WorkdayOperation.BusinessEntity>
+              <uwa:WorkdayOperation.PopulatedAPIParameters>
+                <scg:Dictionary x:TypeArguments="x:String, ubme:EntityField">
+                  <ubme:EntityField SampleValue="{x:Null}" Value="{x:Null}" x:Key="Get_Workers.Get_Workers_ResponseRootType" x:Name="__ReferenceID0" ArgumentDirection="Out" ArgumentType="uwh:Get_Workers_ResponseRootType" DataType="Get_Workers_ResponseRootType" Description="Human_Resources.Get_Workers_ResponseRootType" FieldName="Get_Workers_ResponseRootType" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False">
+                    <ubme:EntityField.ArgumentValue>
+                      <OutArgument x:TypeArguments="uwh:Get_Workers_ResponseRootType">[GetWorkersResponse]</OutArgument>
+                    </ubme:EntityField.ArgumentValue>
+                  </ubme:EntityField>
+                </scg:Dictionary>
+              </uwa:WorkdayOperation.PopulatedAPIParameters>
+              <uwa:WorkdayOperation.SelectedFields>
+                <scg:List x:TypeArguments="ubme:EntityField" Capacity="3">
+                  <ubme:EntityField SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="uwh:Workday_Common_HeaderType" DataType="Workday_Common_HeaderType" Description="Human_Resources.Workday_Common_Header" FieldName="Workday_Common_Header" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False">
+                    <ubme:EntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="uwh:Workday_Common_HeaderType" />
+                    </ubme:EntityField.ArgumentValue>
+                  </ubme:EntityField>
+                  <ubme:EntityField SampleValue="{x:Null}" Value="{x:Null}" ArgumentDirection="In" ArgumentType="uwh:Get_Workers_RequestType" DataType="Get_Workers_RequestType" Description="Human_Resources.Get_Workers_Request" FieldName="Get_Workers_Request" IsCustomField="False" IsDeletable="True" IsIdField="False" IsSelected="False" Mandatory="False">
+                    <ubme:EntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="uwh:Get_Workers_RequestType" />
+                    </ubme:EntityField.ArgumentValue>
+                  </ubme:EntityField>
+                  <x:Reference>__ReferenceID0</x:Reference>
+                </scg:List>
+              </uwa:WorkdayOperation.SelectedFields>
+            </uwa:WorkdayOperation>
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[data]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["Name; DOB; Title; Salary; Age; userID; isActive"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEach x:TypeArguments="uwh:WorkerType" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="433.6,513.6" sap2010:WorkflowViewState.IdRef="ForEach`1_13" Values="[GetWorkersResponse.Response_Data]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="uwh:WorkerType">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="uwh:WorkerType" Name="worker" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="379.2,379.2" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="businesstitle" />
+                      <Variable x:TypeArguments="x:String" Name="name" />
+                      <Variable x:TypeArguments="x:String" Name="dob" />
+                      <Variable x:TypeArguments="x:String" Name="salary" />
+                      <Variable x:TypeArguments="x:String" Name="userID" />
+                      <Variable x:TypeArguments="x:String" Name="isActive" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="337.6,286.4" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                      <ui:MultipleAssign.AssignOperations>
+                        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[businesstitle]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.Employment_Data.Worker_Job_Data(0).Position_Data.Business_Title]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.Personal_Data.Name_Data.Legal_Name_Data.Name_Detail_Data.Formatted_Name]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[dob]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.Personal_Data.Birth_Date.ToString("dd-MM-yyyy")]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[salary]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.Compensation_Data.Employee_Compensation_Summary_Data.Annualized_Summary_Data.Total_Salary_and_Allowances.ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[userID]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.User_ID]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[isActive]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[worker.Worker_Data.Employment_Data.Worker_Status_Data.Active.ToString]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                            <ui:AssignOperation.To>
+                              <OutArgument x:TypeArguments="x:String">[data]</OutArgument>
+                            </ui:AssignOperation.To>
+                            <ui:AssignOperation.Value>
+                              <InArgument x:TypeArguments="x:String">[data+Environment.NewLine+name+";"+dob+";"+businesstitle+";"+salary+";"+(Today.Year-worker.Worker_Data.Personal_Data.Birth_Date.Year).ToString+";"+userID+";"+isActive]</InArgument>
+                            </ui:AssignOperation.Value>
+                          </ui:AssignOperation>
+                        </scg:List>
+                      </ui:MultipleAssign.AssignOperations>
+                    </ui:MultipleAssign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEach>
+            <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" CSVParsing="True" ColumnSeparators=";" DataTable="[dtReport]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[data]" UseColumnHeader="True" />
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="433.6,290.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="Report.xlsx">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,180.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelWriteRange AddHeaders="True" DataTable="[dtReport]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
+          </Sequence>
+        </ActivityAction>
+      </uwa:WorkdayScopeActivity.Body>
+      <uwa:WorkdayScopeActivity.DesignConnectionRequest>
+        <uwm:WorkdayAuthConnectionRequest ServerInstance="https://impl.workday.com/uipath_dpt1/" Tenant="uipath_dpt1" UserName="uipath-presales">
+          <uwm:WorkdayAuthConnectionRequest.Password>
+            <ss:SecureString />
+          </uwm:WorkdayAuthConnectionRequest.Password>
+        </uwm:WorkdayAuthConnectionRequest>
+      </uwa:WorkdayScopeActivity.DesignConnectionRequest>
+      <uwa:WorkdayScopeActivity.ServiceFactory>
+        <uws:WorkdayServiceFactory BusinessEntityService="{x:Null}" SampleDataService="{x:Null}">
+          <uws:WorkdayServiceFactory.BusinessEntityExecuteService>
+            <uws1:WorkdayExecuteService />
+          </uws:WorkdayServiceFactory.BusinessEntityExecuteService>
+          <uws:WorkdayServiceFactory.ConnectionService>
+            <uws1:ConnectionService />
+          </uws:WorkdayServiceFactory.ConnectionService>
+          <uws:WorkdayServiceFactory.IntegrationsClient>
+            <uws:IntegrationsClient />
+          </uws:WorkdayServiceFactory.IntegrationsClient>
+          <uws:WorkdayServiceFactory.MetadataService>
+            <uws1:WorkdayMetadataService />
+          </uws:WorkdayServiceFactory.MetadataService>
+          <uws:WorkdayServiceFactory.QueryService>
+            <uws1:QueryService />
+          </uws:WorkdayServiceFactory.QueryService>
+          <uws:WorkdayServiceFactory.ReportService>
+            <uws1:ReportService />
+          </uws:WorkdayServiceFactory.ReportService>
+        </uws:WorkdayServiceFactory>
+      </uwa:WorkdayScopeActivity.ServiceFactory>
+    </uwa:WorkdayScopeActivity>
+  </Sequence>
+</Activity>
