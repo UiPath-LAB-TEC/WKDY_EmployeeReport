@@ -1,6 +1,6 @@
 # Showcase Title
 
-Confluence page:
+Confluence page: https://uipath.atlassian.net/wiki/spaces/RFI/pages/edit-v2/3348437184?draftShareId=17a04275-77d4-4c80-9c3d-12350b943980
 
 
 Github Repo Guideline:
