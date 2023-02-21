@@ -1,17 +1,14 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="test_invokeoperations" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ubac="clr-namespace:UiPath.BAF.Activities.ContextModel;assembly=UiPath.Workday.Activities" xmlns:ubme="clr-namespace:UiPath.BAF.Models.Entity;assembly=UiPath.Workday" xmlns:ubt="clr-namespace:UiPath.BAF.Telemetry;assembly=UiPath.Workday" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uia="clr-namespace:UiPathTeam.Interactive.Activities;assembly=UiPathTeam.Interactive.Activities" xmlns:uwa="clr-namespace:UiPath.Workday.Activities;assembly=UiPath.Workday.Activities" xmlns:uwh="clr-namespace:UiPath.Workday.Human_Resources;assembly=UiPath.Workday" xmlns:uwm="clr-namespace:UiPath.Workday.Models;assembly=UiPath.Workday" xmlns:uws="clr-namespace:UiPath.Workday.ServiceFactory;assembly=UiPath.Workday" xmlns:uws1="clr-namespace:UiPath.Workday.Services;assembly=UiPath.Workday" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="password" Type="InArgument(ss:SecureString)" />
-    <x:Property Name="username" Type="InArgument(x:String)" />
-    <x:Property Name="TenantURL" Type="InArgument(x:String)" />
-    <x:Property Name="TenantName" Type="InArgument(x:String)" />
+    <x:Property Name="dtReport" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1000,3421</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1018,3687</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>test_invokeoperations_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="102">
+    <scg:List x:TypeArguments="x:String" Capacity="60">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
@@ -39,10 +36,14 @@
       <x:String>UiPath.BAF.Models.CrudOperation</x:String>
       <x:String>UiPathTeam.Interactive.Activities.Properties</x:String>
       <x:String>UiPathTeam.Interactive.Activities</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="110">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -93,18 +94,30 @@
       <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="627,3356" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main" sap:VirtualizedContainerService.HintSize="627,3622" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="username" />
+      <Variable x:TypeArguments="ss:SecureString" Name="password" />
+      <Variable x:TypeArguments="x:String" Name="TenantURL" />
+      <Variable x:TypeArguments="x:String" Name="TenantName" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get Workday Credentials" sap:VirtualizedContainerService.HintSize="585,81" sap2010:WorkflowViewState.IdRef="Sequence_18">
+    <Sequence DisplayName="Get Workday Credentials" sap:VirtualizedContainerService.HintSize="585,347" sap2010:WorkflowViewState.IdRef="Sequence_18">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -166,7 +179,6 @@
             <Sequence.Variables>
               <Variable x:TypeArguments="uwh:Get_Workers_ResponseRootType" Name="GetWorkersResponse" />
               <Variable x:TypeArguments="x:String" Name="data" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dtReport" />
               <Variable x:TypeArguments="x:String" Name="ReportPath" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
@@ -388,7 +400,7 @@
               </uia:DisplayMessage.Opacity>
             </uia:DisplayMessage>
             <ui:CopyFile ContinueOnError="{x:Null}" Destination="[Environment.GetFolderPath(Environment.SpecialFolder.Desktop)]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="509,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[ReportPath]" />
-            <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" Caption="Document Created!" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="509,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;The Report File can be found on Desktop.&quot;]" TopMost="True" />
+            <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:05" Buttons="Ok" Caption="Document Created!" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="509,85" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;The Report File can be found on Desktop.&quot;]" TopMost="True" />
           </Sequence>
         </ActivityAction>
       </uwa:WorkdayScopeActivity.Body>
